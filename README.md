@@ -87,22 +87,6 @@ The VBI implementation includes:
 
 ---
 
-## Realistic Operational Variability
-
-BridgeSHM intentionally incorporates uncertainty sources commonly encountered in field deployments.
-
-| Source | Purpose |
-|----------|----------|
-| Traffic randomness | Simulates natural traffic patterns |
-| Road roughness | Produces realistic dynamic excitation |
-| Temperature effects | Modulates structural stiffness |
-| Thermal gradients | Introduces thermal curvature |
-| Sensor noise | Mimics instrumentation errors |
-| Material variability | Represents manufacturing uncertainty |
-| Solver variability | Improves dataset diversity |
-
----
-
 ## Damage Scenarios
 
 Four structural conditions are simulated.
@@ -183,10 +167,6 @@ Models were evaluated using **run-stratified validation** to prevent data leakag
 * Traffic variability is the dominant source of uncertainty.
 * Damage-induced frequency shifts are extremely small under operational loading.
 * **Gateway RF Fusion** provides the best balance between accuracy and class-wise performance, making it the recommended deployment model.
-
-### Key Challenge
-
-Traffic-induced variability often masks structural damage signatures, making robust feature extraction and sensor fusion essential for reliable SHM.
 
 ---
 
