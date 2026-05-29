@@ -208,7 +208,7 @@ We evaluated five approaches on the same run-stratified data:
 
 | Model | Binary Acc (CV) | Binary Acc (test) | Multiclass Acc | Notes |
 |---|---|---|---|---|
-| **Random Forest** | **69.4% ± 3.9%** | 71.25% | 70.0% | Strong but degraded by run-stratified split (honest) |
+| **Random Forest** | **69.4% ± 3.9%** | 71.25% | 70.0% | Strong but degraded by run-stratified split |
 | **XGBoost** | — | **84.7%*** | **71.1%*** | *Likely from non-stratified split — overestimates |
 | **MLP (96-48-24)** | — | 79.1%* | 60.1%* | Same caveat |
 | **SVM (RBF)** | — | 63.5%* | — | Poor for imbalanced multiclass |
