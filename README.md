@@ -193,8 +193,8 @@ bridge_SHM/
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/<username>/bridge_SHM.git
-cd bridge_SHM
+git clone https://github.com/arx13/BridgeSHM.git
+cd BridgeSHM
 ```
 
 ### Create a Virtual Environment
