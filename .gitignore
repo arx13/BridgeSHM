@@ -1,0 +1,34 @@
+# Virtual environments
+venv/
+venv_ml/
+
+# Generated datasets
+dataset_2026*/
+data/synthetic/
+data/processed/cnn_windows/
+data/processed/3d_windowed_features.csv
+data/processed/module2_windowed_features.csv
+
+# Trained model artifacts
+outputs/classifiers/*.pkl
+outputs/cnn_binary/*.keras
+outputs/cnn_binary/*.npz
+outputs/cnn_multiclass/*.keras
+outputs/cnn_gateway/*.pkl
+outputs/tflite_export/*.tflite
+
+# Plots and logs
+outputs/classifiers/*.png
+outputs/classifiers/training.log
+outputs/validation/*.png
+outputs/modal/*.png
+
+# Free vibration and modal CSV
+outputs/free_vibration/*.csv
+outputs/modal_features/*.csv
+outputs/modal/modal_frequencies.csv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo

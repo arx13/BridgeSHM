@@ -1,0 +1,7 @@
+openseespy
+numpy
+pandas
+matplotlib
+scipy
+tqdm
+scikit-learn

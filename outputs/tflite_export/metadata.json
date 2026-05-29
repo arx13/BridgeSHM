@@ -1,0 +1,179 @@
+{
+  "model_type": "B_binary_intensity",
+  "sensors": {
+    "34": {
+      "tflite_path": "outputs/tflite_export/sensor_34.tflite",
+      "binary_threshold": 0.01,
+      "input_dtype": "<class 'numpy.int8'>",
+      "input_shape": [
+        1,
+        400,
+        3
+      ],
+      "output_shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "output_dtypes": [
+        "<class 'numpy.int8'>",
+        "<class 'numpy.int8'>"
+      ]
+    },
+    "37": {
+      "tflite_path": "outputs/tflite_export/sensor_37.tflite",
+      "binary_threshold": 0.01,
+      "input_dtype": "<class 'numpy.int8'>",
+      "input_shape": [
+        1,
+        400,
+        3
+      ],
+      "output_shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "output_dtypes": [
+        "<class 'numpy.int8'>",
+        "<class 'numpy.int8'>"
+      ]
+    },
+    "39": {
+      "tflite_path": "outputs/tflite_export/sensor_39.tflite",
+      "binary_threshold": 0.01,
+      "input_dtype": "<class 'numpy.int8'>",
+      "input_shape": [
+        1,
+        400,
+        3
+      ],
+      "output_shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "output_dtypes": [
+        "<class 'numpy.int8'>",
+        "<class 'numpy.int8'>"
+      ]
+    },
+    "44": {
+      "tflite_path": "outputs/tflite_export/sensor_44.tflite",
+      "binary_threshold": 0.01,
+      "input_dtype": "<class 'numpy.int8'>",
+      "input_shape": [
+        1,
+        400,
+        3
+      ],
+      "output_shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "output_dtypes": [
+        "<class 'numpy.int8'>",
+        "<class 'numpy.int8'>"
+      ]
+    },
+    "47": {
+      "tflite_path": "outputs/tflite_export/sensor_47.tflite",
+      "binary_threshold": 0.01,
+      "input_dtype": "<class 'numpy.int8'>",
+      "input_shape": [
+        1,
+        400,
+        3
+      ],
+      "output_shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "output_dtypes": [
+        "<class 'numpy.int8'>",
+        "<class 'numpy.int8'>"
+      ]
+    },
+    "49": {
+      "tflite_path": "outputs/tflite_export/sensor_49.tflite",
+      "binary_threshold": 0.01,
+      "input_dtype": "<class 'numpy.int8'>",
+      "input_shape": [
+        1,
+        400,
+        3
+      ],
+      "output_shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "output_dtypes": [
+        "<class 'numpy.int8'>",
+        "<class 'numpy.int8'>"
+      ]
+    },
+    "54": {
+      "tflite_path": "outputs/tflite_export/sensor_54.tflite",
+      "binary_threshold": 0.01,
+      "input_dtype": "<class 'numpy.int8'>",
+      "input_shape": [
+        1,
+        400,
+        3
+      ],
+      "output_shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "output_dtypes": [
+        "<class 'numpy.int8'>",
+        "<class 'numpy.int8'>"
+      ]
+    }
+  },
+  "num_binary_classes": 2,
+  "num_intensity_classes": 3,
+  "input_shape": [
+    400,
+    3
+  ]
+}
