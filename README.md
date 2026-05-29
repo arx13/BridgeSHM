@@ -230,10 +230,6 @@ Gateway RF Fusion is the preferred deployment architecture because it:
 
 ---
 
-## License
-
-Specify the project license here.
-
 ## Acknowledgements
 
 This project combines finite-element simulation, structural dynamics, vehicle–bridge interaction modeling, and machine-learning techniques for next-generation Structural Health Monitoring research.
