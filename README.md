@@ -229,12 +229,6 @@ Simulation dependencies:
 pip install -r requirements.txt
 ```
 
-Machine-learning dependencies:
-
-```bash
-pip install -r requirements_ml.txt
-```
-
 ---
 
 # Running Simulations
