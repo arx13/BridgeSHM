@@ -194,74 +194,6 @@ Traffic-induced variability often masks structural damage signatures, making rob
 
 ```text
 bridge_SHM/
-│
-├── run_batch.sh                        # Batch dataset generation script
-├── train_classifiers.sh                # ML training wrapper
-├── run_full_dataset.py                 # Main dataset generation entry point
-├── run_visualizations.py               # Validation and analysis plots
-├── requirements.txt                    # Simulation & ML dependencies
-│
-├── digital_twin/                       # Core bridge simulation engine
-│   ├── __init__.py
-│   ├── config.py                       # Bridge, traffic, and damage parameters
-│   ├── bridge_simulation.py            # 3D FE model, VBI solver, sensors
-│   ├── traffic.py                      # Vehicle models and traffic generation
-│   └── utils.py                        # Data export and utility functions
-│
-├── preprocessing/                      # Data preparation pipeline
-│   ├── __init__.py
-│   ├── features.py                     # Statistical, FFT, and spatial features
-│   ├── run_feature_pipeline.py         # Raw signals → feature dataset
-│   └── window_dataset_cnn.py           # Raw signals → CNN windows
-│
-├── models/                             # Model training and evaluation
-│   ├── __init__.py
-│   ├── classifier_data_loader.py       # Run-stratified data loading
-│   ├── train_classifier.py             # RF, XGBoost, MLP, and SVM training
-│   ├── evaluate_classifier.py          # Metrics and confusion matrices
-│   ├── train_cnn_binary.py             # Binary healthy/damaged CNN
-│   ├── train_cnn_multiclass.py         # Multiclass CNN classifier
-│   ├── train_gateway.py                # Gateway RF Fusion model
-│   ├── compare_models.py               # Model benchmarking
-│   └── export_tflite.py                # TensorFlow Lite export
-│
-├── validation/                         # Data exploration and SHM analysis
-│   ├── __init__.py
-│   ├── damage_analysis.py              # PCA, feature importance, RMS analysis
-│   └── fft_analysis.py                 # Spectral and frequency analysis
-│
-├── modal_analysis/                     # Structural dynamics analysis
-│   ├── __init__.py
-│   ├── modal.py                        # Eigenvalue and mode-shape analysis
-│   ├── free_vibration.py               # Free-decay simulations
-│   ├── modal_features.py               # Modal feature extraction
-│   ├── plots.py                        # Visualization utilities
-│   ├── run_modal.py                    # Modal analysis runner
-│   ├── run_free_vibration.py           # Free-vibration runner
-│   └── run_modal_features.py           # Modal feature pipeline
-│
-└── outputs/                            # Generated results and trained models
-    ├── cnn_binary/                     # Binary CNN models
-    ├── cnn_multiclass/                 # Multiclass CNN models
-    ├── cnn_gateway/                    # Gateway RF Fusion models
-    └── tflite_export/                  # ESP32 deployment artifacts
-
-```
-
-### Directory Overview
-
-| Directory         | Purpose                                                                          |
-| ----------------- | -------------------------------------------------------------------------------- |
-| `digital_twin/`   | High-fidelity 3D finite-element bridge simulation and vehicle–bridge interaction |
-| `preprocessing/`  | Signal processing, feature extraction, and CNN dataset generation                |
-| `models/`         | Machine-learning and deep-learning training pipelines                            |
-| `validation/`     | Exploratory analysis and damage-sensitive feature investigation                  |
-| `modal_analysis/` | Structural dynamics and modal parameter extraction                               |
-| `datasets/`       | Generated SHM datasets from simulation runs                                      |
-| `outputs/`        | Trained models, plots, evaluation metrics, and deployment artifacts              |
-
-```text
-bridge_SHM/
 ├── digital_twin/        # Bridge simulation engine
 ├── preprocessing/       # Windowing and feature extraction
 ├── models/              # Training and evaluation pipelines
@@ -272,6 +204,7 @@ bridge_SHM/
 ├── run_visualizations.py
 └── requirements.txt
 ```
+
 
 ---
 
