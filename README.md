@@ -193,9 +193,6 @@ Traffic-induced variability often masks structural damage signatures, making rob
 ## Repository Structure
 
 ```text
-## Repository Structure
-
-```text
 bridge_SHM/
 │
 ├── run_batch.sh                        # Batch dataset generation script
@@ -263,9 +260,17 @@ bridge_SHM/
 | `datasets/`       | Generated SHM datasets from simulation runs                                      |
 | `outputs/`        | Trained models, plots, evaluation metrics, and deployment artifacts              |
 
-```
-```
-
+```text
+bridge_SHM/
+├── digital_twin/        # Bridge simulation engine
+├── preprocessing/       # Windowing and feature extraction
+├── models/              # Training and evaluation pipelines
+├── validation/          # Data exploration and visualization
+├── modal_analysis/      # Modal analysis utilities
+├── outputs/             # Generated artifacts
+├── run_full_dataset.py
+├── run_visualizations.py
+└── requirements.txt
 ```
 
 ---
