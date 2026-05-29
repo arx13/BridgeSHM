@@ -20,8 +20,6 @@ The pipeline has four stages:
 ```text
 bridge_SHM/
 │
-├── run_batch.sh                        # Batch dataset generation script
-├── train_classifiers.sh                # ML training wrapper
 ├── run_full_dataset.py                 # Main dataset generation entry point
 ├── run_visualizations.py               # Validation and analysis plots
 ├── requirements.txt                    # Simulation & ML dependencies
