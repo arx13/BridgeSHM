@@ -183,11 +183,11 @@ Train on healthy-only windows, threshold reconstruction error:
 
 | Criterion | XGBoost (84.7%) | RF run-stratified | Gateway RF Fusion |
 |---|---|---|---|
-| **Honest evaluation** | ❌ (likely leaked) | ✅ (CV 69.4%) | ✅ (run-stratified) |
+| **Honest evaluation** | (likely leaked) | (CV 69.4%) | (run-stratified) |
 | **Healthy recall** | ~60% | **8%** (trivial) | **62.5%** (balanced) |
-| **Multiclass capability** | ✅ 71.1% | ✅ 70.0% | ✅ 63.24% |
+| **Multiclass capability** | 71.1% | 70.0% | 63.24% |
 | **Per-class balance** | Moderate | Terrible (all "damaged") | **Best** (0.53–0.78 F1) |
-| **Deployable as edge model** | ✅ | ✅ | ✅ (RF is small) |
+| **Deployable as edge model** | Yes | Yes | Yes (RF is small) |
 
 The **Gateway RF Fusion** is the **recommended model** for real-world deployment because:
 
@@ -202,7 +202,6 @@ The **Gateway RF Fusion** is the **recommended model** for real-world deployment
 
 ```
 bridge_SHM/
-├── .gitignore                          ← Excludes venv, datasets, models, plots
 ├── activate_venv.sh                    ← Python venv activation helper
 ├── run_batch.sh                        ← Wrapper to launch full dataset generation
 ├── train_classifiers.sh                ← Wrapper to run ML classifier training
@@ -243,30 +242,24 @@ bridge_SHM/
 ├── modal_analysis/                     ← MODAL ANALYSIS (3D eigen solver)
 │   ├── __init__.py
 │   ├── modal.py                        ← Eigenvalue analysis, mode shape extraction (uses BridgeModel3D)
-│   ├── free_vibration.py              ← Impulse excitation + free decay simulation
+│   ├── free_vibration.py               ← Impulse excitation + free decay simulation
 │   ├── modal_features.py               ← FFT-based modal feature extraction from CSV
 │   ├── plots.py                        ← Frequency/mode-shape comparison plots
 │   ├── run_modal.py                    ← Runner: computes frequencies + shapes per damage case
 │   ├── run_free_vibration.py           ← Runner: simulates free vibration decay
 │   └── run_modal_features.py           ← Runner: extracts modal features from CSV dataset
 │
-├── outputs/                            ← GENERATED RESULTS (not in git)
-│   ├── classifiers/                    ← Trained .pkl models + confusion matrices + ROC curves
-│   ├── cnn_binary/                     ← Model B: per-sensor .keras + thresholds + gateway data
-│   ├── cnn_multiclass/                 ← Model A: per-sensor .keras + ensemble results
-│   ├── cnn_gateway/                    ← Gateway RF .pkl + 4-class results.json
-│   ├── tflite_export/                  ← TFLite models + metadata for ESP32
-│   ├── validation/                     ← Time-series, FFT, PCA, spatial RMS plots
-│   ├── modal/                          ← Frequency tables + mode shape plots
-│   ├── modal_features/                 ← Bridge health index per sensor per case
-│   └── free_vibration/                 ← Free vibration CSV data per damage case
-│
-├── dataset_20260527_193221/            ← COMPLETE DATASET (not in git)
-│   └── 11 files: raw CSVs + metadata + traffic logs, 866 MB
-│
-└── data/
-    ├── synthetic/                      ← Old dataset from main.py (not in git)
-    └── processed/                      ← 3d_windowed_features.csv + CNN .npz windows (not in git)
+└── outputs/                            ← GENERATED RESULTS (not in git)
+    ├── classifiers/                    ← Trained .pkl models + confusion matrices + ROC curves
+    ├── cnn_binary/                     ← Model B: per-sensor .keras + thresholds + gateway data
+    ├── cnn_multiclass/                 ← Model A: per-sensor .keras + ensemble results
+    ├── cnn_gateway/                    ← Gateway RF .pkl + 4-class results.json
+    ├── tflite_export/                  ← TFLite models + metadata for ESP32
+    ├── validation/                     ← Time-series, FFT, PCA, spatial RMS plots
+    ├── modal/                          ← Frequency tables + mode shape plots
+    ├── modal_features/                 ← Bridge health index per sensor per case
+    └── free_vibration/                 ← Free vibration CSV data per damage case
+
 ```
 
 ---
