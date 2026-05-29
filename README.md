@@ -196,6 +196,307 @@ bridge_SHM/
 
 ---
 
+## Installation & Setup
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/<username>/bridge_SHM.git
+cd bridge_SHM
+```
+
+### Create a Virtual Environment
+
+Linux/macOS:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+Windows:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Install Dependencies
+
+Simulation dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Machine-learning dependencies:
+
+```bash
+pip install -r requirements_ml.txt
+```
+
+---
+
+# Running Simulations
+
+## Generate the Full Dataset
+
+Generate all bridge conditions and stochastic runs:
+
+```bash
+python run_full_dataset.py
+```
+
+This process will:
+
+* Build the 3D bridge finite-element model
+* Generate random traffic scenarios
+* Apply vehicle–bridge interaction (VBI)
+* Inject damage cases
+* Simulate transient response
+* Record sensor measurements
+* Export datasets for ML training
+
+Expected output:
+
+```text
+dataset_YYYYMMDD_HHMMSS/
+├── dataset_healthy.csv
+├── dataset_reduced_girder_stiffness.csv
+├── dataset_bearing_failure.csv
+├── dataset_deck_cracking.csv
+├── metadata.json
+└── dataset.log
+```
+
+---
+
+## Generate Validation Visualizations
+
+```bash
+python run_visualizations.py
+```
+
+Produces:
+
+* Time-history plots
+* FFT comparisons
+* PCA visualizations
+* Damage analysis figures
+* Modal-analysis plots
+
+---
+
+# Feature Extraction
+
+Convert raw simulation outputs into machine-learning features:
+
+```bash
+python preprocessing/run_feature_pipeline.py
+```
+
+Output:
+
+```text
+3d_windowed_features.csv
+```
+
+---
+
+## Create CNN Training Windows
+
+Generate CNN-ready datasets:
+
+```bash
+python preprocessing/window_dataset_cnn.py
+```
+
+Output:
+
+```text
+cnn_windows/
+├── sensor_SN67.npz
+├── sensor_SN72.npz
+├── sensor_SN77.npz
+└── ...
+```
+
+---
+
+# Training Machine Learning Models
+
+## Random Forest
+
+```bash
+python models/train_classifier.py --model rf
+```
+
+## XGBoost
+
+```bash
+python models/train_classifier.py --model xgb
+```
+
+## Multi-Layer Perceptron (MLP)
+
+```bash
+python models/train_classifier.py --model mlp
+```
+
+## Support Vector Machine (SVM)
+
+```bash
+python models/train_classifier.py --model svm
+```
+
+Generated outputs:
+
+```text
+outputs/classifiers/
+├── trained_model.pkl
+├── confusion_matrix.png
+├── roc_curve.png
+└── metrics.json
+```
+
+---
+
+# Training Deep Learning Models
+
+## Binary CNN (Healthy vs Damaged)
+
+```bash
+python models/train_cnn_binary.py
+```
+
+Outputs:
+
+```text
+outputs/cnn_binary/
+```
+
+---
+
+## Multiclass CNN
+
+```bash
+python models/train_cnn_multiclass.py
+```
+
+Outputs:
+
+```text
+outputs/cnn_multiclass/
+```
+
+---
+
+# Training the Gateway RF Fusion Model
+
+Train the recommended deployment architecture:
+
+```bash
+python models/train_gateway.py
+```
+
+Outputs:
+
+```text
+outputs/cnn_gateway/
+├── gateway_rf.pkl
+├── results.json
+└── confusion_matrix.png
+```
+
+---
+
+# Model Evaluation
+
+Evaluate trained models:
+
+```bash
+python models/evaluate_classifier.py
+```
+
+Evaluation metrics include:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* ROC-AUC
+* Confusion Matrix
+
+---
+
+# Modal Analysis
+
+Run eigenvalue and mode-shape analysis:
+
+```bash
+python modal_analysis/run_modal.py
+```
+
+Run free-vibration simulations:
+
+```bash
+python modal_analysis/run_free_vibration.py
+```
+
+Extract modal features:
+
+```bash
+python modal_analysis/run_modal_features.py
+```
+
+Outputs:
+
+```text
+outputs/modal/
+outputs/free_vibration/
+outputs/modal_features/
+```
+
+---
+
+# Export for ESP32 Deployment
+
+Convert trained CNN models to TensorFlow Lite:
+
+```bash
+python models/export_tflite.py
+```
+
+Output:
+
+```text
+outputs/tflite_export/
+├── model.tflite
+├── metadata.json
+└── labels.txt
+```
+
+---
+
+# End-to-End Workflow
+
+```text
+run_full_dataset.py
+          ↓
+run_feature_pipeline.py
+          ↓
+train_classifier.py
+          ↓
+train_cnn_binary.py
+          ↓
+train_gateway.py
+          ↓
+evaluate_classifier.py
+          ↓
+export_tflite.py
+```
+
+
 ## Recommended Deployment Model
 
 Gateway RF Fusion is the preferred deployment architecture because it:
