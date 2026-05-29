@@ -164,14 +164,25 @@ This approach demonstrated the most balanced class performance and practical dep
 
 ---
 
-## Key Findings
+## Performance Summary
 
-### What Worked
+Models were evaluated using **run-stratified validation** to prevent data leakage between simulations and provide realistic estimates of deployment performance.
 
-- Spatial features consistently outperformed single-sensor temporal features.
-- Sensor fusion improved damage discrimination.
-- Gateway RF Fusion provided the best balance between accuracy and class recall.
-- Run-stratified evaluation produced more realistic performance estimates.
+| Model             | Task                      | Accuracy  |
+| ----------------- | ------------------------- | --------- |
+| Random Forest     | Binary Classification     | 71.25%    |
+| XGBoost*          | Multiclass Classification | 71.1%     |
+| Multi-Sensor CNN  | Multiclass Classification | 47.0%     |
+| Gateway RF Fusion | Multiclass Classification | **63.2%** |
+
+* Results may be optimistic due to non-stratified evaluation.
+
+### Key Findings
+
+* Cross-sensor spatial features outperform individual sensor features.
+* Traffic variability is the dominant source of uncertainty.
+* Damage-induced frequency shifts are extremely small under operational loading.
+* **Gateway RF Fusion** provides the best balance between accuracy and class-wise performance, making it the recommended deployment model.
 
 ### Key Challenge
 
